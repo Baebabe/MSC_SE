@@ -58,3 +58,17 @@ class Budget(models.Model):
         if self.__class__.objects.count():
             self.pk = self.__class__.objects.first().pk
         super().save(*args, **kwargs)
+
+# class CustomTemplates(models.Model):
+#     TEMPLATE_TYPE_CHOICES = [
+#         ('midterm', 'Midterm'),
+#         ('final', 'Final'),
+        
+#     ]
+
+#     type = models.CharField(max_length=50, choices=TEMPLATE_TYPE_CHOICES)
+#     name = models.CharField(max_length=100)
+#     content = models.TextField()
+
+#     def __str__(self):
+#         return f'{self.type} - {self.name}'

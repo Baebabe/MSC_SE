@@ -18,6 +18,7 @@ urlpatterns = [
     # path('admin_setting', views.admin, name='admin_setting'),
     # path('budget', views.budget, name='budget'),
     path('invalid', views.invalid, name='invalid'),
-    path('health/', views.health_check, name='health_check'),
-
+    #path('health/', views.health_check, name='health_check'),
+    # path('makeTemplate', views.template, name='templateTest'),
+    # path('getTemplate', views.getTemplate, name='getTemplate'),
 ]

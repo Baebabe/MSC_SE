@@ -1,5 +1,5 @@
-# Use Python 3.6.5 as a parent image
-FROM python:3.6.5-slim
+FROM python:3.11-slim
+
 
 # Set environment variables
 ENV PYTHONDONTWRITEBYTECODE=1
@@ -28,4 +28,3 @@ EXPOSE 7188
 
 # Run the application
 ENTRYPOINT ["sh", "-c", "ls -l /app && /app/start-server.sh"]
-

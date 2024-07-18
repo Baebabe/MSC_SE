@@ -16,39 +16,11 @@ from django.http import JsonResponse
 def health_check(request):
     return JsonResponse({"status": "ok"})
 
-
 def index(request):
     return render(request, 'thesis/home.html')
 
-
 def invalid(request):
     return render(request, 'thesis/invalid.html')
-
-
-# def budget(request):
-#     if request.method == 'POST':
-#         formset = BudgetFormset(request.POST)
-#         print(formset.errors)
-#         if formset.is_valid():
-#             formset.save()
-#
-#         return redirect('budget')
-#     else:
-#         formset = BudgetFormset(queryset=Budget.objects.all())
-#         return render(request, 'thesis/budget.html', {'formset': formset})
-
-#
-# def admin(request):
-#     if request.method == 'POST':
-#         formset = AdministratorForm(request.POST)
-#         print(formset.errors)
-#         if formset.is_valid():
-#             formset.save()
-#         return redirect('index')
-#     else:
-#         formset = AdministratorForm(queryset=Admin.objects.all())
-#         return render(request, 'thesis/admin_setting.html', {'formset': formset})
-
 
 def proposal_entries(request):
     return render(request, 'thesis/proposal_entries.html')
@@ -60,7 +32,6 @@ def midterm_entries(request):
 
 def final_entries(request):
     return render(request, 'thesis/final_entries.html')
-
 
 def students(request):
     if request.method == 'POST':
@@ -91,42 +62,6 @@ def students(request):
     else:
         formset = StudentFormset(queryset=Student.objects.all())
         return render(request, 'thesis/students.html', {'formset': formset})
-
-
-# def supervisor(request):
-#     if request.method == 'POST':
-#         formset = SupervisorForm(request.POST)
-#         print(formset.errors)
-#         if formset.is_valid():
-#             instances = formset.save(commit=False)
-#             for i in instances:
-#                 if i.remove is True:
-#                     i.delete()
-#                 else:
-#                     i.save()
-#         return redirect('supervisor')
-#     else:
-#         formset = SupervisorForm(queryset=Supervisor.objects.all())
-#         return render(request, 'thesis/supervisor.html', {'formset': formset})
-
-
-# def examiner(request):
-#     if request.method == 'POST':
-#         formset = ExaminerForm(request.POST)
-#         print(formset.errors)
-#         if formset.is_valid():
-#             instances = formset.save(commit=False)
-#             for i in instances:
-#                 if i.remove is True:
-#                     i.delete()
-#                 else:
-#                     i.save()
-#             return redirect('examiner')
-#         else:
-#             return redirect('invalid')
-#     else:
-#         formset = ExaminerForm(queryset=Examiner.objects.all())
-#         return render(request, 'thesis/examiner.html', {'formset': formset})
 
 
 def proposalNotice(request):
@@ -447,9 +382,9 @@ def midtermthesislist(request):
 
             k = 0
             for name in committeeMembers:
-                if k is 0:
+                if k == 0:
                     post = 'Supervisor Member Secretary'
-                elif k is 1:
+                elif k == 1:
                     post = 'Supervisor Member'
                 else:
                     post = 'Supervisor Chairman'
@@ -716,9 +651,9 @@ def finalthesislist(request):
 
             k = 0
             for name in committeeMembers:
-                if k is 0:
+                if k == 0:
                     post = 'Supervisor Member Secretary'
-                elif k is 1:
+                elif k == 1:
                     post = 'Supervisor Member'
                 else:
                     post = 'Supervisor Chairman'
@@ -908,3 +843,5 @@ def results(request):
         formset = ResultFormset(
             queryset=Student.objects.filter(midterm=True).filter(final=True).filter(totalMarks=None))
         return render(request, 'thesis/results.html', {'formset': formset, 'form': form})
+
+
