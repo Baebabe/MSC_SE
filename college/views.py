@@ -304,3 +304,4 @@ def cloneyear(request):
         form = CloneForm()
 
     return render(request, 'admin/yearclone.html', {'form': form, 'log': log})
+
